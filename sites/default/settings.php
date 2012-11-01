@@ -232,7 +232,7 @@ $update_free_access = FALSE;
  *   $drupal_hash_salt = file_get_contents('/home/example/salt.txt');
  *
  */
-$drupal_hash_salt = file_get_contents('/data/drupalsites/' . $_SERVER['USER'] . '/julio7/' . $_SERVER['FQDN']. '/salt.txt');
+$drupal_hash_salt = file_get_contents('/data/drupalsites/' . $_SERVER['USER'] . '/drupal7/' . $_SERVER['FQDN']. '/salt.txt');
 
 /**
  * Base URL (optional).
@@ -511,4 +511,4 @@ $conf['404_fast_html'] = '<html xmlns="http://www.w3.org/1999/xhtml"><head><titl
  */
 $conf['allow_authorize_operations'] = FALSE;
 
-require_once('/data/drupalsites/' . $_SERVER['USER'] . '/julio7/' . $_SERVER['FQDN'] . '/settings.php');
+require_once('/data/drupalsites/' . $_SERVER['USER'] . '/drupal7/' . $_SERVER['FQDN'] . '/settings.php');
