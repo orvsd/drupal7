@@ -291,6 +291,9 @@ ini_set('session.gc_maxlifetime', 200000);
  */
 ini_set('session.cookie_lifetime', 2000000);
 
+// Safer / less verbose error reporting
+error_reporting(E_ALL & ~E_NOTICE);
+
 /**
  * If you encounter a situation where users post a large amount of text, and
  * the result is stripped out upon viewing but can still be edited, Drupal's
