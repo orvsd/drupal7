@@ -534,18 +534,12 @@ else {
 }
 $base_url = $base_root .= '://'. $_SERVER['HTTP_HOST'];
 
-// ORVSD settings.php include
-require_once('/data/drupalsites/' . $orvsduser . '/drupal7/' . $orvsdfqdn . '/settings.php');
-
-$conf['file_temporary_path'] = '/data/drupalsites/' . $orvsduser . '/drupal7/' . $orvsdfqdn . '/tmp';
-
-/* Memcache soon...
-$conf['cache_backends'][] = 'sites/all/modules/memcache/memcache.inc';
-$conf['cache_default_class'] = 'MemCacheDrupal';
-// The 'cache_form' bin must be assigned no non-volatile storage.
-$conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
+// ORVSD Memcache configuration
+include_once DRUPAL_ROOT . '/includes/cache.inc';
+include_once DRUPAL_ROOT . '/sites/all/modules/memcache/memcache.inc';
 $conf = array(
-  'cache_default_class' = 'MemCacheDrupal',
+  'cache_default_class' => 'MemCacheDrupal',
+  'cache_class_cache_form' => 'DrupalDatabaseCache',
   'memcache_servers' => array('10.1.0.228:11211' => 'default',
                               '10.1.0.229:11211' => 'default',
                               '10.1.0.230:11211' => 'default',
@@ -553,8 +547,11 @@ $conf = array(
                               '10.1.0.225:11211' => 'default',
                               '10.1.0.179:11211' => 'default'),
   'memcache_bins' => array('cache' => 'default'),
-  'memcache_key_prefix' => $orvsdfqdn . '_',
+  'memcache_key_prefix' => $orvsdfqdn,
 );
- */
 
+// ORVSD settings.php include
+require_once('/data/drupalsites/' . $orvsduser . '/drupal7/' . $orvsdfqdn . '/settings.php');
+
+$conf['file_temporary_path'] = '/data/drupalsites/' . $orvsduser . '/drupal7/' . $orvsdfqdn . '/tmp';
 
